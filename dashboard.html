@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <main class="card">
+      <h1>Welcome</h1>
+      <p class="subtitle">You are signed in as <strong id="username"></strong>.</p>
+      <button id="logout" type="button">Logout</button>
+    </main>
+    <script src="js/auth.js"></script>
+    <script>
+      const session = requireAuth();
+      document.getElementById("username").textContent = session.username;
+      document.getElementById("logout").addEventListener("click", function () {
+        clearSession();
+        window.location.href = "index.html";
+      });
+    </script>
+  </body>
+</html>
